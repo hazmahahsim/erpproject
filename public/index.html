@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store ERP | Inventory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">INVENTORY MANAGEMENT</p>
+      <h1>HM MART</h1>
+    </div>
+    <span class="status"><span></span> System ready</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <h2>Product dashboard</h2>
+        <p>Manage products, stock levels and prices from one place.</p>
+      </div>
+      <button id="newProductBtn" class="primary">+ Add product</button>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><p>Total products</p><strong id="totalProducts">0</strong></article>
+      <article class="stat-card"><p>Total stock units</p><strong id="totalUnits">0</strong></article>
+      <article class="stat-card"><p>Inventory value</p><strong id="inventoryValue">Rs. 0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div><h3>Products</h3><p>Search, filter, add, edit or delete items.</p></div>
+      </div>
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search product name...">
+        <select id="categoryFilter"><option value="">All categories</option></select>
+      </div>
+      <div id="message" role="status" aria-live="polite"></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+          <tbody id="productRows"><tr><td colspan="5">Loading products...</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel form-panel" id="formPanel" hidden>
+      <div class="panel-heading"><div><h3 id="formTitle">Add product</h3><p>Enter the product details below.</p></div></div>
+      <form id="productForm">
+        <input type="hidden" id="productId">
+        <div class="form-grid">
+          <label>Product name<input id="name" required maxlength="100" placeholder="e.g. Basmati Rice 1kg"></label>
+          <label>Category<input id="category" required maxlength="60" placeholder="e.g. Grocery"></label>
+          <label>Price (PKR)<input id="price" required type="number" min="0" step="0.01" placeholder="0"></label>
+          <label>Stock quantity<input id="stock" required type="number" min="0" step="1" placeholder="0"></label>
+        </div>
+        <div class="form-actions"><button class="primary" type="submit" id="saveBtn">Save product</button><button type="button" id="cancelBtn" class="secondary">Cancel</button></div>
+      </form>
+    </section>
+    <footer>ERP MODEL BY HAMZA HASHIM|| Node.js + Express </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
